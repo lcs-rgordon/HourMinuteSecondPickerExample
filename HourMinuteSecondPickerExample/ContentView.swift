@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var hours = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack(spacing: 20) {
+            Picker("Hours", selection: $hours) {
+                Text("Zero").tag(0)
+                Text("One").tag(1)
+                Text("Two").tag(2)
+                Text("Three").tag(3)
+            }
+            .pickerStyle(.wheel)
+            
+            Text("You chose \(hours) hours.")
         }
-        .padding()
+        .font(.title)
     }
 }
 
